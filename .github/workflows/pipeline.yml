@@ -38,7 +38,6 @@ jobs:
           CONTAINS: ${{ contains(join(github.event.commits.*.message, ' '), '#skip') }}
         run: echo "$CONTAINS"
 
-
   QA-checks:
     runs-on: ubuntu-20.04
     steps:
