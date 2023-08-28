@@ -31,11 +31,11 @@ jobs:
         run: echo "$HEAD_COMMIT_MESSAGES"
       - name: single contains
         env:
-          SINGLE_CONTAINS: ${{ contains('#skip', github.event.head_commit.message) }}
+          SINGLE_CONTAINS: ${{ contains(github.event.head_commit.message, '#skip') }}
         run: echo "$SINGLE_CONTAINS"
       - name: contains
         env:
-          CONTAINS: ${{ contains('#skip', join(github.event.commits.*.message, ' ')) }}
+          CONTAINS: ${{ contains(join(github.event.commits.*.message, ' '), '#skip') }}
         run: echo "$CONTAINS"
 
 
