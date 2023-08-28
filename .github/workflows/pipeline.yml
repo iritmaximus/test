@@ -29,7 +29,8 @@ jobs:
   QA-checks:
     runs-on: ubuntu-20.04
     steps:
-      run: echo "checks linting and such"
+      - name: "linting + other things"
+        run: echo "checks linting and such"
 
   deploy:
     needs: QA-checks
@@ -37,7 +38,8 @@ jobs:
     runs-on: ubuntu-latest
     if: ${{ github.event_name == 'push' }}
     steps:
-      run: echo "hi this is now deploying :D"
+      - name: "deploying"
+        run: echo "hi this is now deploying :D"
 
   tag_release:
     needs: [QA-checks, deploy]
